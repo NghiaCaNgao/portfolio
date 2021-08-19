@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&family=Montserrat:wght@500;800&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.page {
+    height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden;
+}
+.home {
+    background-image: url("https://happydaytravel.com/wp-content/uploads/2019/10/image7-compressed-3.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.content {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+    h1.hello {
+        font-size: 10em;
+        color: burlywood;
+    }
+    h1.text-more {
+        font-size: 2em;
+        color: #deb887;
+        background-color: white;
+        width: fit-content;
+        padding: 0 5px;
+        max-width: 50%;
+        font-weight: 800;
+        text-align: center;
+    }
+    .text-move {
+        display: flex;
+        color: palevioletred;
+        margin: 50px 0;
+        width: fit-content;
+        & > h1 {
+            font-size: 5em;
+        }
+    }
+    .wrap-text {
+        margin-left: 7px;
+        overflow: hidden;
+        animation: move 3s ease-in-out infinite;
+    }
+    .text-item {
+        width: max-content;
+        background-color: black;
+        padding: 0 5px;
+        display: none;
+    }
+}
+
+.visible {
+    display: block !important;
+}
+
+.social{
+    display: flex;
+    width: fit-content;
+    margin: 20px 0;
+    background-color: white;
+    a{
+        display: block;
+        padding: 5px;
+        margin: 10px 10px;
+        svg{
+            fill: palevioletred;
+        };
+        &:hover{
+            svg{
+                transform: translateY(-5px);
+            }
+        }
+    }
+}
+
+@keyframes move {
+    0% {
+        width: 0;
+    }
+    40% {
+        width: 100%;
+    }
+    60% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}

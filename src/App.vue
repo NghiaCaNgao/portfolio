@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navbar />
+    <div id="fullpage">
+      <Home class="section" />
+      <Introduce class="section" />
+      <Project class="section" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from "./components/Navbar.vue";
+import Home from "./views/Home.vue";
+import Introduce from "./views/Introduce.vue";
+import Project from "./views/Project.vue"
+import { WOW } from "wowjs";
+import fullpage from "fullpage.js";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Home,
+    Introduce,
+    Project,
+    Navbar,
+  },
+  mounted() {
+    new fullpage("#fullpage", {
+      autoScrolling: true,
+      scrollHorizontally: true,
+      scrollingSpeed: 400,
+      onLeave: function (origin, destination) {
+        if (destination.index === 0) {
+          const nav = document.getElementById("nav");
+          nav.style.backgroundColor = "transparent";
+        }
+        if (origin.index === 0) {
+          const nav = document.getElementById("nav");
+          nav.style.backgroundColor = "black";
+        }
+      },
+    });
+    new WOW().init();
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

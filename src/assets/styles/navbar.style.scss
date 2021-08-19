@@ -1,0 +1,69 @@
+.nav {
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 10000;
+    transition: all .3s;
+    & > div {
+        display: flex;
+    }
+}
+
+[role = "btn"]{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    &:focus{
+        outline: none;
+    }
+    margin: 10px;
+}
+
+.logo,
+.links {
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.logo {
+    font-weight: 800;
+    color: #ec2027;
+    .logo-icon {
+        height: 32px;
+        margin: 10px;
+        object-fit: scale-down;
+        img {
+            height: 100%;
+        }
+    }
+}
+.links {
+    a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: white;
+        font-weight: 800;
+        display: block;
+        padding: 5px;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background-color: #ec2027;
+            width: 0;
+            transition: all 0.3s;
+        }
+        &:hover::after {
+            width: 100%;
+        }
+    }
+    button{
+        color: white;
+        font-weight: 800;
+    }
+}
